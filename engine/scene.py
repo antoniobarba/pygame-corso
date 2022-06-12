@@ -1,8 +1,8 @@
 class Scene:
-
-    def __init__(self):
+    def __init__(self, name):
         # there will be actors acting things
         self.actors = []
+        self.name = name
 
     def load(self):
         for a in self.actors:

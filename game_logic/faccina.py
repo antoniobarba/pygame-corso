@@ -6,6 +6,7 @@ class Faccina(Actor):
     def __init__(self):
         super().__init__()
         self.assetFileName = "faccina.png"
+        self.name = "Faccina"
 
     def load(self):
         self.image = pygame.image.load(self.assetFileName)

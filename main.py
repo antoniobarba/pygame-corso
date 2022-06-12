@@ -6,19 +6,22 @@ from engine.actor import *
 from engine.fixwindow import *
 from game_logic.faccina import *
 from engine.bouncing_object import BouncingObject
+from engine.filesave import Save
 
 pygame.init()
 pygame.display.set_caption("Prova dell'engine")
 
 Quit = False
 
-scene = FixWindow()
+scene = FixWindow("Faccina screensaver!")
 actor = Faccina()
 scene.actors.append(actor)
 
 scene.load()
 component = BouncingObject(actor.image, scene.window.get_rect())
 scene.actors[0].components.append(component)
+Save.level_save("levels", "test_level", [scene])
+# exit()
 
 
 def process_events():
