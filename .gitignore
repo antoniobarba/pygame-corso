@@ -109,6 +109,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+env1/
 
 # Spyder project settings
 .spyderproject
@@ -128,6 +129,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Personal file excluded
-Test.py
-levels/*
+# Personal file
+prova2.json
+delete.py
+.idea/

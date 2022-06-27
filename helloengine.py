@@ -1,25 +1,28 @@
 import pygame, pygame.locals, sys
-from engine.scene import *
-from engine.component import *
-from engine.actor import *
-from engine.staticspritecomponent import *
+from engine.scenefactory import *
+import time
 
 pygame.init()
 
-# setup the window
-window = pygame.display.set_mode((300, 600), 0, 32)
-pygame.display.set_caption("Titolo bellissimo")
-
 # Global state variable
 Quit = False
-scene = Scene()
 
-component = StaticSpriteComponent("faccina.png", window.get_rect())
-actor = Actor()
-actor.components.append(component)
-scene.actors.append(actor)
+# Level setup code
+scene = SceneFactory.newLoadSceneFromFile("savefiles/example.json")
 
+# Uncomment the following lines to use the saved json file
+# scene = SceneFactory.newLoadSceneFromFile("savefiles/prova2.json")
+
+# setup the window
+window = pygame.display.set_mode(
+    (scene.windowRect.width, scene.windowRect.height), 0, 32
+)
+pygame.display.set_caption("Titolo bellissimo")
 scene.load()
+
+# Saving the current scene in a JSON file
+SceneFactory.newSaveSceneToFile(scene, "savefiles/prova2.json")
+
 
 def process_events():
     global Quit
@@ -29,12 +32,14 @@ def process_events():
         if event.type == pygame.locals.QUIT:
             Quit = True
 
-def update_game_logic():
+
+def update_game_logic(deltaTime):
     global scene
-    
-    scene.update()
+
+    scene.update(deltaTime)
 
     return
+
 
 def render():
     global scene
@@ -45,16 +50,22 @@ def render():
     window.fill(BLACK)
 
     scene.render(window)
-    
+
     # update the display with the new content of the window
     pygame.display.update()
 
+
 # game loop
+oldTime = time.time()
 while not Quit:
+    newTime = time.time()
+    deltaTime = newTime - oldTime
+    oldTime = newTime
+
     process_events()
-    
-    update_game_logic()
-    
+
+    update_game_logic(deltaTime)
+
     render()
 
 pygame.quit()

@@ -1,0 +1,144 @@
+{
+    "window": {
+        "width": 550,
+        "height": 700
+    },
+    "actors": [
+        {
+            "name": "Red",
+            "type": "BaseActor",
+            "module": "engine.actors.baseactor",
+            "x": 0,
+            "y": 0,
+            "components": [
+                {
+                    "name": "sprite",
+                    "type": "StaticSpriteComponent",
+                    "module": "engine.components.staticspritecomponent",
+                    "fileName": "assets/red_ghost.png"
+                },
+                {
+                    "name": "bouncing",
+                    "type": "BouncingMovementComponent",
+                    "module": "engine.components.bouncingmovementcomponent",
+                    "boundingRect": {
+                        "x": 100,
+                        "y": 100,
+                        "width": 400,
+                        "height": 500
+                    },
+                    "vx": 100,
+                    "vy": 100
+                }
+            ]
+        },
+        {
+            "name": "Blue",
+            "type": "BaseActor",
+            "module": "engine.actors.baseactor",
+            "x": 0,
+            "y": 0,
+            "components": [
+                {
+                    "name": "sprite",
+                    "type": "StaticSpriteComponent",
+                    "module": "engine.components.staticspritecomponent",
+                    "fileName": "assets/blue_ghost.png"
+                },
+                {
+                    "name": "bouncing",
+                    "type": "BouncingMovementComponent",
+                    "module": "engine.components.bouncingmovementcomponent",
+                    "boundingRect": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 200,
+                        "height": 300
+                    },
+                    "vx": 50,
+                    "vy": 30
+                }
+            ]
+        },
+        {
+            "name": "Pink",
+            "type": "BaseActor",
+            "module": "engine.actors.baseactor",
+            "x": 20,
+            "y": 260,
+            "components": [
+                {
+                    "name": "sprite",
+                    "type": "StaticSpriteComponent",
+                    "module": "engine.components.staticspritecomponent",
+                    "fileName": "assets/pink_ghost.png"
+                },
+                {
+                    "name": "zigzag",
+                    "type": "ZigZagMovementComponent",
+                    "module": "engine.components.zigzagmovementcomponent",
+                    "boundingRect": {
+                        "x": 100,
+                        "y": 100,
+                        "width": 300,
+                        "height": 400
+                    },
+                    "vx": 10,
+                    "vy": 10
+                }
+            ]
+        },
+        {
+            "name": "Orange",
+            "type": "BaseActor",
+            "module": "engine.actors.baseactor",
+            "x": 100,
+            "y": 100,
+            "components": [
+                {
+                    "name": "sprite",
+                    "type": "StaticSpriteComponent",
+                    "module": "engine.components.staticspritecomponent",
+                    "fileName": "assets/orange_ghost.png"
+                },
+                {
+                    "name": "circle",
+                    "type": "CircleMovementComponent",
+                    "module": "engine.components.circlemovementcomponent",
+                    "radius": 200,
+                    "center_x": 250,
+                    "center_y": 250,
+                    "speed": 50,
+                    "starting_angle": 210
+                }
+            ]
+        },
+        {
+            "name": "PacMan",
+            "type": "BaseActor",
+            "module": "engine.actors.baseactor",
+            "x" : 0,
+            "y" : 0,
+            "components": [
+                {
+                    "name": "sprite",
+                    "type": "StaticSpriteComponent",
+                    "module": "engine.components.staticspritecomponent",
+                    "fileName": "assets/pac_man.png"
+                },
+                {
+                    "name": "path",
+                    "type": "PathMovementComponent",
+                    "module": "engine.components.pathmovementcomponent",
+                    "path" :
+                        [
+                            {"x": 0, "y": 0, "time": 0},
+                            {"x": 100, "y": 50, "time": 1},
+                            {"x": 50, "y": 100, "time": 0.5},
+                            {"x": 0, "y": 0, "time": 0.5}
+                        ]
+                }
+            ]
+        }
+    ]
+}
