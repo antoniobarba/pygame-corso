@@ -12,7 +12,7 @@ class Component:
         pass
 
     # There will be timing involved
-    def update(self):
+    def update(self, deltaTime):
         pass
 
     def setOwner(self, actor):
@@ -27,5 +27,13 @@ class Component:
         component = base_class.loadFromDict(componentDescriptor)
         return component
 
-    def saveToDict(self):
+    def calculateDeltaVelocity(self, deltaTime):
         pass
+
+    def saveToDict(self):
+        savedict = {
+            "name": self.name,
+            "type": self.__class__.__name__,
+            "module": self.__module__,
+        }
+        return savedict

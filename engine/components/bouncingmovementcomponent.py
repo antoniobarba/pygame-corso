@@ -1,4 +1,4 @@
-from .component import *
+from ..component import *
 
 
 class BouncingMovementComponent(Component):
@@ -13,10 +13,17 @@ class BouncingMovementComponent(Component):
     def render(self, surface):
         pass
 
+    def calculateDeltaVelocity(self, deltaTime):
+        deltavx = self.vx * deltaTime
+        deltavy = self.vy * deltaTime
+        return (deltavx, deltavy)
+
     # There will be timing involved
-    def update(self):
-        self.owner.x += self.vx
-        self.owner.y += self.vy
+    def update(self, deltaTime):
+        deltavx, deltavy = self.calculateDeltaVelocity(deltaTime)
+
+        self.owner.x += deltavx
+        self.owner.y += deltavy
 
         # bounce on the x axis
         if self.owner.x < 0 or self.owner.x > self.boundingRect.width:
@@ -37,20 +44,25 @@ class BouncingMovementComponent(Component):
             rectDescriptor["width"],
             rectDescriptor["height"],
         )
-        return BouncingMovementComponent(r)
+        temp = BouncingMovementComponent(r)
+        temp.name = componentDescriptor["name"]
+        temp.vx = componentDescriptor["vx"]
+        temp.vy = componentDescriptor["vy"]
+        return temp
 
     def saveToDict(self):
+        savedict = super().saveToDict()
         savedict = {
-            "name": "bouncing",
-            "type": "BouncingMovementComponent",
-            "module": "engine.bouncingmovementcomponent",
-            "boundingRect": {
-                        "x" : self.owner.x,
-                        "y" : self.owner.y,
-                        "width" : self.boundingRect.width,
-                        "height" :self.boundingRect.height
+            **savedict,
+            **{
+                "boundingRect": {
+                    "x": self.owner.x,
+                    "y": self.owner.y,
+                    "width": self.boundingRect.width,
+                    "height": self.boundingRect.height,
+                },
+                "vx": self.vx,
+                "vy": self.vy,
             },
-            "vx" : self.vx,
-            "vy" : self.vy,
         }
         return savedict

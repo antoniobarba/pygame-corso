@@ -16,21 +16,25 @@ class Scene:
             a.render(surface)
 
     # There will be timing involved
-    def update(self):
+    def update(self, deltaTime):
         for a in self.actors:
-            a.update()
+            a.update(deltaTime)
 
     def loadFromDict(self, sceneDescriptor):
         windowDescriptor = sceneDescriptor["window"]
         self.windowRect.height = windowDescriptor["height"]
         self.windowRect.width = windowDescriptor["width"]
 
+        # Loading each actor in the scene
+        from .actor import Actor
+
+        for actorDescriptor in sceneDescriptor["actors"]:
+            actor = Actor.loadFromDict(actorDescriptor)
+            self.actors.append(actor)
+
     def saveToDict(self):
         savedict = {
-            "window": {
-                "width" : self.windowRect.width,
-                "height" : self.windowRect.height
-            }
+            "window": {"width": self.windowRect.width, "height": self.windowRect.height}
         }
         actor_list = []
         for actor in self.actors:

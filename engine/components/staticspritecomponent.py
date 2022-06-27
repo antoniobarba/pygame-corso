@@ -1,4 +1,4 @@
-from .component import Component
+from ..component import Component
 import pygame
 
 
@@ -20,14 +20,11 @@ class StaticSpriteComponent(Component):
     @staticmethod
     def loadFromDict(componentDescriptor):
         filename = componentDescriptor["fileName"]
-        return StaticSpriteComponent(filename)
+        temp = StaticSpriteComponent(filename)
+        temp.name = componentDescriptor["name"]
+        return temp
 
     def saveToDict(self):
-        savedict = {
-            "name" : "sprite",
-            "module" : "engine.staticspritecomponent",
-            "type": "StaticSpriteComponent",
-            "fileName": str(self.assetFileName),
-        }
+        savedict = super().saveToDict()
+        savedict["fileName"] = str(self.assetFileName)
         return savedict
-

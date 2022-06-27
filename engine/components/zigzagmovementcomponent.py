@@ -1,4 +1,4 @@
-from .component import *
+from ..component import Component
 import time
 import random
 
@@ -17,11 +17,16 @@ class ZigZagMovementComponent(Component):
     def random_direction(self):
         # If 1 second is passed since last change the velocity value will randomly change
         if time.time() > self.last_change + 1:
-            self.vx = random.randrange(-10, 10) / 10
-            self.vy = random.randrange(-10, 10) / 10
+            self.vx = random.randrange(-300, 300)
+            self.vy = random.randrange(-300, 300)
             self.last_change = time.time()
 
-    def update(self):
+    def calculateDeltaVelocity(self, deltaTime):
+        deltavx = self.vx * deltaTime
+        deltavy = self.vy * deltaTime
+        return deltavx, deltavy
+
+    def update(self, deltaTime):
         self.random_direction()
 
         # bounce on the x axis
@@ -32,8 +37,10 @@ class ZigZagMovementComponent(Component):
         if self.owner.y < 0 or self.owner.y > self.boundingRect.height:
             self.vy = -self.vy
 
-        self.owner.x += self.vx
-        self.owner.y += self.vy
+        deltavx, deltavy = self.calculateDeltaVelocity(deltaTime)
+
+        self.owner.x += deltavx
+        self.owner.y += deltavy
 
     @staticmethod
     def loadFromDict(componentDescriptor):
@@ -46,18 +53,16 @@ class ZigZagMovementComponent(Component):
             rectDescriptor["width"],
             rectDescriptor["height"],
         )
-        return ZigZagMovementComponent(r)
+        temp = ZigZagMovementComponent(r)
+        temp.name = componentDescriptor["name"]
+        return temp
 
     def saveToDict(self):
-        savedict = {
-            "name": "zigzag",
-            "type": self.__class__.__name__,
-            "module": "engine.zigzagmovementcomponent",
-            "boundingRect": {
-                "x": self.owner.x,
-                "y": self.owner.y,
-                "width": self.boundingRect.width,
-                "height": self.boundingRect.height,
-            },
+        savedict = super().saveToDict()
+        savedict["boundingRect"] = {
+            "x": self.owner.x,
+            "y": self.owner.y,
+            "width": self.boundingRect.width,
+            "height": self.boundingRect.height,
         }
         return savedict

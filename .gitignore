@@ -129,6 +129,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
-# Personal/Test file
+# Personal file
 prova2.json
+delete.py
+.idea/
