@@ -2,6 +2,7 @@ import pygame, time
 from .inputsystem import InputSystem
 from .scenefactory import SceneFactory
 from .scene import Scene
+from .collisionsystem import CollisionSystem
 
 class Singleton(type):
     _instances = {}
@@ -15,6 +16,7 @@ class Engine(metaclass=Singleton):
     def __init__(self):
         pygame.init()
         self.inputSystem = InputSystem()
+        self.collisionSystem = CollisionSystem()
         self.scene = None
         self.window = None
         self.quit = False
@@ -48,10 +50,11 @@ class Engine(metaclass=Singleton):
                 self.quit = True
         
         self.inputSystem.process()
+        self.collisionSystem.process()
 
     def update(self):
         self.newTime = time.time()
-        deltaTime = self.newTime - self.oldTime
+        deltaTime = min(self.newTime - self.oldTime, 1.0 / 30.0)
         self.scene.update(deltaTime)
 
         self.oldTime = self.newTime # prepare for the next frame

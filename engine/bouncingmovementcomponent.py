@@ -2,7 +2,7 @@ from .component import *
 
 class BouncingMovementComponent(Component):
     # Owner could be empty at first
-    def __init__(self, boundingRect, name, actor):
+    def __init__(self, name, actor, boundingRect):
         super().__init__(name, actor)
         self.vx = 100
         self.vy = 100

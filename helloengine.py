@@ -4,7 +4,7 @@ from engine.engine import Engine
 # Global state variable
 engine = Engine()
 
-engine.loadScene("pathtest.json")
+engine.loadScene("democollision.json")
 
 # game loop
 engine.gameLoop()

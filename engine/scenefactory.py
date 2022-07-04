@@ -6,6 +6,7 @@ from engine.staticspritecomponent import *
 from engine.bouncingmovementcomponent import *
 from .floatingmovementcomponent import *
 from .pathmovementcomponent import *
+from .collidercomponent import *
 from pygame import rect
 
 class SceneFactory:
@@ -36,11 +37,16 @@ class SceneFactory:
                             rectDescriptor = componentDescriptor["boundingRect"]
                             r = rect.Rect(rectDescriptor["x"], rectDescriptor["y"],
                                 rectDescriptor["width"], rectDescriptor["height"])
-                            component = BouncingMovementComponent(componentDescriptor["name"], r, actor)
+                            component = BouncingMovementComponent(componentDescriptor["name"], actor, r)
                         elif componentDescriptor["type"] == FloatingMovementComponent.__name__:
                             component = FloatingMovementComponent(componentDescriptor["name"], actor)
                         elif componentDescriptor["type"] == PathMovementComponent.__name__:
                             component = PathMovementComponent(componentDescriptor["name"], actor, componentDescriptor["path"])
+                        elif componentDescriptor["type"] == ColliderComponent.__name__:
+                            rectDescriptor = componentDescriptor["AABB"]
+                            AABB = rect.Rect(rectDescriptor["x"], rectDescriptor["y"],
+                                rectDescriptor["width"], rectDescriptor["height"])
+                            component = ColliderComponent(componentDescriptor["name"], actor, AABB)
                         else:
                             raise Exception(f"Wrong component type: {componentDescriptor['type']}")
                         
