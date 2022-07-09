@@ -31,6 +31,9 @@ class Component:
     def load(self):
         pass
 
+    def onDestroyed(self):
+        pass
+
     def render(self, surface):
         pass
 

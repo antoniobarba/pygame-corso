@@ -3,6 +3,9 @@ class CollisionSystem:
     def __init__(self):
         self.colliders = []
 
+    def reset(self):
+        self.colliders.clear()
+
     def process(self):
         # detect collisions...
 

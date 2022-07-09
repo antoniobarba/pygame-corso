@@ -1,0 +1,31 @@
+{
+    "window" : {
+        "width" : 400,
+        "height" : 800,
+        "title" : "Paccanoid"
+    },
+    "gameMode": {
+        "type" : "arkanoid.gamemodes.Menu",
+        "screen": "lost"
+    },
+    "actors" : 
+    [
+        {
+            "name" : "background",
+            "x" : 0,
+            "y" : 0,
+            "components" :
+            [
+                {
+                    "name": "sprite",
+                    "type": "engine.components.StaticSpriteComponent",
+                    "fileName": "arkanoid/assets/img/lost.png"
+                },
+                {
+                    "name": "controller",
+                    "type": "arkanoid.components.MenuControllerComponent"
+                }
+            ]
+        }
+    ]
+}

@@ -9,7 +9,7 @@
             "name": "Python: file corrente",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/helloengine.py",
+            "program": "${workspaceFolder}/arkanoid.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

@@ -14,10 +14,13 @@ class StaticSpriteComponent(Component):
     def load(self):
         self.image = pygame.image.load(self.assetFileName)
 
+    def onDestroyed(self):
+        self.image = None
+
     def render(self, surface):
         rect = self.image.get_rect()
-        rect.centerx = self.owner.x
-        rect.centery = self.owner.y
+        rect.x = self.owner.x
+        rect.y = self.owner.y
         surface.blit(self.image, rect)
 
 

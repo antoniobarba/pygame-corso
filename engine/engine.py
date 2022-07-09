@@ -1,4 +1,4 @@
-import pygame, time
+import pygame, pygame.locals, time
 from .inputsystem import InputSystem
 from .scene import Scene
 from .collisionsystem import CollisionSystem
@@ -17,13 +17,22 @@ class Engine(metaclass=Singleton):
         self.inputSystem = InputSystem()
         self.collisionSystem = CollisionSystem()
         self.scene = None
-        self.window = None
+        self.window = None # this is the "logic window"
+        self.viewport = None # this is the actual window, after scaling
         self.quit = False
         self.newTime = time.time()
         self.oldTime = self.newTime
-
+        self.sceneFileName = ""
 
     def loadScene(self, fileName):
+        self.sceneFileName = fileName
+
+    def __loadScene(self, fileName):
+        if self.scene is not None:
+            self.scene.unload()
+            self.inputSystem.reset()
+            self.collisionSystem.reset()
+
         # Level setup code
         self.scene = Scene.staticCreateFromFile(fileName)
 
@@ -31,13 +40,22 @@ class Engine(metaclass=Singleton):
             return
 
         # setup the window
-        self.window = pygame.display.set_mode((self.scene.windowRect.width, self.scene.windowRect.height), 0, 32)
+        r = self.scene.windowRect
+        scale = self.scene.scale
+        self.viewport = pygame.display.set_mode((r.width * scale, r.height * scale), 0, 32)
+        self.window = pygame.Surface((r.width, r.height), 0, 32)
         pygame.display.set_caption(self.scene.title)
 
         self.scene.load()
 
     def gameLoop(self):
         while not self.quit:
+
+            # deferred scene loading
+            if self.sceneFileName != "":
+                self.__loadScene(self.sceneFileName)
+                self.sceneFileName = ""
+
             self.processEvents()
             self.update()
             self.render()
@@ -62,11 +80,20 @@ class Engine(metaclass=Singleton):
         self.oldTime = self.newTime # prepare for the next frame
 
     
+    def getGameMode(self):
+        return self.scene.gamemode
+
     def render(self):
-        # clear the screen
-        BLACK = (0, 0, 0)
-        self.window.fill(BLACK)
+        # render the scene
         self.scene.render(self.window)
+
+        # scale to the viewport resolution
+        r = self.window.get_rect()
+        s = self.scene.scale
+        buffer = pygame.transform.scale(self.window, (r.width * s, r.height * s))
+        self.viewport.blit(buffer, self.viewport.get_rect())
+        pygame.display.flip()
+
 
         # update the display with the new content of the window
         pygame.display.update()

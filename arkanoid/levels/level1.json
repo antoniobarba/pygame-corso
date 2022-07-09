@@ -1,0 +1,396 @@
+{
+    "window" : {
+        "width" : 200,
+        "height" : 400,
+        "scale" : 2,
+        "background" : {"r": 0, "g": 64, "b": 64},
+        "title" : "Paccanoid"
+    },
+    "gameMode": {
+        "type" : "arkanoid.gamemodes.GamePlay",
+        "lives" : 3
+    },
+    "actors" : 
+    [
+        {
+            "name" : "brick",
+            "x": 20,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 36,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 52,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 68,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 84,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 100,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 116,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 132,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 148,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 164,
+            "y" : 20,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+
+        {
+            "name" : "brick",
+            "x": 36,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 52,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 68,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 84,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 100,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 116,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 132,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+        {
+            "name" : "brick",
+            "x": 148,
+            "y" : 28,
+            "components" : 
+            [
+                {
+                    "name" : "collider",
+                    "type" : "arkanoid.components.BrickColliderComponent",
+                    "AABB" : {"x":1, "y":1, "width": 15, "height": 7}
+                },
+                {
+                    "name" : "sprite",
+                    "type" : "engine.components.StaticSpriteComponent",
+                    "fileName" : "arkanoid/assets/img/brick1.png"
+                }
+            ]
+        },
+
+
+        {
+            "name": "ball",
+            "x" : 50,
+            "y" : 100,
+            "type" : "arkanoid.actors.Ball",
+            "components" :
+            [
+                {
+                    "name": "movement",
+                    "type": "arkanoid.components.BallMovementComponent",
+                    "speed": 200,
+                    "AABB": {"x":0, "y":0, "width": 5, "height": 5}
+                },
+                {
+                    "name": "sprite",
+                    "type": "engine.components.StaticSpriteComponent",
+                    "fileName": "arkanoid/assets/img/ball.png"
+                }
+            ]
+        },
+        {
+            "name" : "Player",
+            "x" : 50,
+            "y" : 380,
+            "components" :
+            [
+                {
+                    "name": "sprite",
+                    "type": "engine.components.AnimatedSpriteComponent",
+                    "pingPong": true,
+                    "frames":
+                    [
+                        { "fileName": "arkanoid/assets/img/r1.png", "duration" : 0.1 },
+                        { "fileName": "arkanoid/assets/img/r2.png", "duration" : 0.1 },
+                        { "fileName": "arkanoid/assets/img/r3.png", "duration" : 0.1 },
+                        { "fileName": "arkanoid/assets/img/r4.png", "duration" : 0.1 }
+                    ]
+                    
+                },
+                {
+                    "name": "collision",
+                    "type": "engine.components.ColliderComponent",
+                    "AABB": {"x":0, "y":0, "width": 32, "height": 8}
+                },
+                {
+                    "name": "movement",
+                    "type": "arkanoid.components.PlayerMovementComponent",
+                    "speed": 150,
+                    "inertia": 400,
+                    "AABB": {"x":0, "y":0, "width": 32, "height": 8}
+                }
+            ]
+        }
+    ]
+}
