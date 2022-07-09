@@ -7,6 +7,29 @@
     "actors" : 
     [
         {
+            "name" : "Vagabondo",
+            "x" : 0,
+            "y" : 0,
+            "components" :
+            [
+                {
+                    "name": "sprite",
+                    "type": "engine.components.StaticSpriteComponent",
+                    "fileName": "assets/ghost1.png"
+                },
+                {
+                    "name": "pathcomponent",
+                    "type": "engine.components.PathMovementComponent",
+                    "path" : [
+                        {"x": 100, "y" : 100, "time": 2},
+                        {"x": 140, "y" : 500, "time": 2},
+                        {"x": 500, "y" : 400, "time": 1.3},
+                        {"x": 700, "y" : 300, "time": 6}
+                    ]
+                }
+            ]
+        },
+        {
             "name" : "Gino",
             "x" : 0,
             "y" : 0,
