@@ -1,12 +1,20 @@
-from .component import *
+from ..component import *
+from pygame.rect import Rect
 
 class BouncingMovementComponent(Component):
     # Owner could be empty at first
-    def __init__(self, name, actor, boundingRect):
-        super().__init__(name, actor)
-        self.vx = 100
-        self.vy = 100
-        self.boundingRect = boundingRect
+    def __init__(self):
+        super().__init__()
+        self.vx = 0
+        self.vy = 0
+        self.boundingRect = Rect(0,0,0,0)
+
+    def loadFromDescriptor(self, descriptor):
+        super().loadFromDescriptor(descriptor)
+        self.vx = descriptor["vx"]
+        self.vy = descriptor["vy"]
+        rd = descriptor["boundingRect"]
+        self.boundingRect = Rect(rd["x"], rd["y"], rd["width"], rd["height"])
 
     # I could implement some debugging rendering here
     def render(self, surface):

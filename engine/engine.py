@@ -1,6 +1,5 @@
 import pygame, time
 from .inputsystem import InputSystem
-from .scenefactory import SceneFactory
 from .scene import Scene
 from .collisionsystem import CollisionSystem
 
@@ -26,7 +25,10 @@ class Engine(metaclass=Singleton):
 
     def loadScene(self, fileName):
         # Level setup code
-        self.scene = SceneFactory.loadSceneFromFile(fileName)
+        self.scene = Scene.staticCreateFromFile(fileName)
+
+        if self.scene is None:
+            return
 
         # setup the window
         self.window = pygame.display.set_mode((self.scene.windowRect.width, self.scene.windowRect.height), 0, 32)

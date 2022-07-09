@@ -1,11 +1,15 @@
-from .component import Component
+from ..component import Component
 import pygame
 
 class StaticSpriteComponent(Component):
-    def __init__(self, assetFileName, name, actor):
-        super().__init__(name, actor)
-        self.assetFileName = assetFileName
+    def __init__(self):
+        super().__init__()
+        self.assetFileName = ""
         self.image = None
+
+    def loadFromDescriptor(self, descriptor):
+        super().loadFromDescriptor(descriptor)
+        self.assetFileName = descriptor["fileName"]
 
     def load(self):
         self.image = pygame.image.load(self.assetFileName)

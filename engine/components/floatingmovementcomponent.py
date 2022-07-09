@@ -1,11 +1,11 @@
 import pygame.locals
-from .component import Component
+from ..component import Component
 
 class FloatingMovementComponent(Component):
-    def __init__(self, name, actor):    
-        from .engine import Engine
+    def __init__(self):    
+        from engine import Engine
 
-        super().__init__(name, actor)
+        super().__init__()
         engine = Engine() # this is a singleton, don't worry too much
         engine.inputSystem.bindToKeyboard(pygame.locals.K_LEFT, self.keyPressed)
         engine.inputSystem.bindToKeyboard(pygame.locals.K_RIGHT, self.keyPressed)
