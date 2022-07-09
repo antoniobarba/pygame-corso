@@ -5,9 +5,9 @@ class PathMovementComponent(Component):
 
     class Leg:
         def __init__(self, x, y, time):
-            self.x = 0
-            self.y = 0
-            self.time = 0
+            self.x = x
+            self.y = y
+            self.time = time
 
     def __init__(self):
         super().__init__()
