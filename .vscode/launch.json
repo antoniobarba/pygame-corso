@@ -9,7 +9,7 @@
             "name": "Python: file corrente",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/arkanoid.py",
+            "program": "${workspaceFolder}/pacman.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

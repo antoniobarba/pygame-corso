@@ -1,0 +1,25 @@
+{
+    "window" : {
+        "width" : 400,
+        "height" : 800,
+        "title" : "Paccanoid"
+    },
+    
+    "actors" : 
+    [
+        {
+            "name" : "test",
+            "type" : "pacman.actors.TestActor",
+            "x" : 0,
+            "y" : 0,
+            "components" :
+            [
+                {
+                    "name" : "movement",
+                    "type" : "pacman.components.PlayerMovementComponent",
+                    "speed" : 200
+                }
+            ]
+        }
+    ]
+}

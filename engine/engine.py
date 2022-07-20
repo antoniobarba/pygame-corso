@@ -2,6 +2,7 @@ import pygame, pygame.locals, time
 from .inputsystem import InputSystem
 from .scene import Scene
 from .collisionsystem import CollisionSystem
+from .soundsystem import SoundSystem
 
 class Singleton(type):
     _instances = {}
@@ -16,6 +17,7 @@ class Engine(metaclass=Singleton):
         pygame.init()
         self.inputSystem = InputSystem()
         self.collisionSystem = CollisionSystem()
+        self.soundSystem = SoundSystem()
         self.scene = None
         self.window = None # this is the "logic window"
         self.viewport = None # this is the actual window, after scaling
